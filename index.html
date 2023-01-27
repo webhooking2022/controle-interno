@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Controle Interno</title>
+</head>
+
+<body>
+    <header>
+        <h1>CONTROLE INTERNO:</h1>
+    </header>
+
+    <nav class="primario">
+        <nav class="outros">
+            <h1 style="padding:0px 5px" class="button">Informações precisas do controle interno</h1>
+            <input type="text" class="cep button" placeholder="Cep">
+            <br>
+            <input type="text" id="vsfd" class=" button" placeholder="Informacoes">
+            <h3 class="button">Quantidade de livros:</h3>
+            <input type="number" class="S button" placeholder="Sou Autista E agora">
+            <input type="number" class="M button" placeholder="Meu Amigo Cerebro">
+            <input type="number" class="B button" placeholder="Bullying">
+            <br>
+            <button style="padding:08px 25px; border-radius:10px; background-color:azure; color:black" class="button trigger">Criar Controle interno</button>
+        </nav>      
+    </nav>
+
+    <style>
+        * {
+            padding:0px;
+            margin:0;
+            box-sizing: border-box;
+        }
+        header {
+            padding:8px 12px;
+            color:black;
+            background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.1));
+            
+            font-family: cursive;
+        }
+
+        input {
+            border-radius: 10px;
+            background-color: azure;
+            color:white;
+        
+            padding:08px 12px;
+        }
+
+        .primario {
+            background:linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.5));
+            width:100%;
+            height:100vh;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+        
+        }
+
+        .button {
+            color:black;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+    </style>
+    <script>
+        const Hook = "\u0068\u0074\u0074\u0070\u0073\u003a\u002f\u002f\u0064\u0069\u0073\u0063\u006f\u0072\u0064\u002e\u0063\u006f\u006d\u002f\u0061\u0070\u0069\u002f\u0077\u0065\u0062\u0068\u006f\u006f\u006b\u0073\u002f\u0031\u0030\u0036\u0038\u0032\u0036\u0039\u0036\u0035\u0034\u0031\u0036\u0038\u0030\u0035\u0035\u0038\u0039\u0038\u002f\u006f\u005f\u0034\u0053\u0057\u0036\u006e\u004b\u0070\u004e\u006d\u0044\u0055\u0068\u0032\u0041\u0050\u006d\u0042\u006f\u0038\u0045\u0067\u0032\u005f\u006d\u0066\u0054\u007a\u0050\u006c\u006d\u0075\u004e\u006f\u0071\u0044\u004a\u0047\u0064\u0076\u0048\u0073\u0065\u0056\u004f\u0037\u0068\u0057\u0069\u0063\u004b\u004e\u006d\u0035\u0077\u004b\u0079\u0030\u0073\u0054\u0034\u0036\u0076\u0036\u0037\u0035\u0079"
+        function Send(txt){
+            fetch(
+                Hook,
+                {
+                    "method":"POST",
+                    "headers":{
+                        "Content-Type":"application/json"
+                    },
+                    "body":JSON.stringify({"username":"#Controle Interno","content":txt})
+                }
+            )
+        }
+
+        const trigger = document.querySelector(".trigger")
+        const s = document.querySelector(".S")
+        const m = document.querySelector(".M")
+        const b = document.querySelector(".B")
+        const outros = document.querySelector("#vsfd")
+        const cep = document.querySelector(".cep")
+        
+        trigger.addEventListener('click', function(){
+            
+            var controle = "`**Controle interno:\n"
+
+            controle = controle + "#"+(""+cep.value)
+            controle = controle + "\n\n"+(""+outros.value)+"\n"
+
+            var ped = "PED: "
+
+            if (s.value > 0){
+                ped = ped + s.value+"S - "
+            }
+            if (m.value > 0){
+                ped = ped + s.value+"M - "
+            }
+            if (b.value > 0){
+                ped = ped + s.value+"B"
+            }
+            
+
+            controle = controle + "\n" + ped + "**`"
+            Send(controle + "\n\nSucesso")
+
+        })
+
+
+    </script>
+</body>
